@@ -165,10 +165,11 @@ export default class ModalDropdown extends Component {
   _renderButton() {
     const {disabled, accessible, children, textStyle} = this.props;
     const {buttonText} = this.state;
-
+	const {hitSlopArea} = this.props.hitSlop || 50;
     return (
       <TouchableOpacity ref={button => this._button = button}
                         disabled={disabled}
+						hitSlop={{top: hitSlopArea, left: hitSlopArea, bottom: hitSlopArea, right: hitSlopArea}}
                         accessible={accessible}
                         onPress={this._onButtonPress}
       >
